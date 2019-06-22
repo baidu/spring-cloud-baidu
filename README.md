@@ -44,46 +44,6 @@ Logging Spring Boot Starter 基于spring-boot-starter-logging做扩展，提供�
 ##### 6. Env Core Spring Boot Starter
 提供云环境适配工具。方便更好的在云环境上使用微服务框架。现在支持百度云。
 
-## 快速开始
-### 先决条件
-JDK 8+, SpringBoot 2.0.7.RELEASE, Spring Cloud Finchley.SR2
-
-### 编译构建
-```bash
-./mvnw clean install -DskipTests
-```
-
-### 使用
-##### 1. 引入BOM
-
-```xml
-<dependencyManagement>
- <dependencies>
-    <dependency>
-        <groupId>com.baidu.formula</groupId>
-        <artifactId>spring-cloud-formula-parent</artifactId>
-        <version>${spring-cloud-formula.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
-
-##### 2. 根据需求引入依赖
-
-```xml
-<dependencies>
-  <depencency>
-    <groupId>com.baidu.formula</groupId>
-    <artifactId>logging-spring-boot-starter</artifactId>
-  </depencency>
-</dependencies>
-```
-
-## 测试
-```bash
-./mvnw clean test
-```
-
+## License
+baidu/spring-cloud-formula is licensed under the Apache License 2.0
 
