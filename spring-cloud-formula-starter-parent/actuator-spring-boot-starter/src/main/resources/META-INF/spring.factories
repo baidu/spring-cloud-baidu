@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.baidu.formula.actuator.health.HealthAutoConfiguration,\
+    com.baidu.formula.actuator.info.ActuatorInfoAutoConfiguration,\
+    com.baidu.formula.actuator.logging.WebContainerAccessLogAutoConfiguration,\
+    com.baidu.formula.actuator.serving.ServicesEndpointAutoConfiguration,\
+    com.baidu.formula.actuator.security.ActuatorSecurityAutoConfiguration
+
+com.baidu.formula.config.application.name=cpdinf-actuator
+com.baidu.formula.config.application.order=1

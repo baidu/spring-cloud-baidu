@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.baidu.formula.ratelimiter.spring.boot.autoconfigure.RateLimiterAutoConfiguration,\
+  com.baidu.formula.ratelimiter.spring.boot.autoconfigure.interceptor.RestTemplateRateLimiterAutoConfiguration,\
+  com.baidu.formula.ratelimiter.spring.boot.autoconfigure.interceptor.AsyncRestTemplateRateLimiterConfiguration,\
+  com.baidu.formula.ratelimiter.spring.boot.autoconfigure.interceptor.FeignRequestConfiguration
+
+#com.baidu.formula.config.application.name=formula-ratelimiter

@@ -1,0 +1,7 @@
+org.springframework.context.ApplicationListener=\
+  com.baidu.formula.logging.LoggingEnvironmentApplicationListener
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.baidu.formula.logging.web.WebContainerAccessLogAutoConfiguration
+
+com.baidu.formula.config.application.name=formula-logging

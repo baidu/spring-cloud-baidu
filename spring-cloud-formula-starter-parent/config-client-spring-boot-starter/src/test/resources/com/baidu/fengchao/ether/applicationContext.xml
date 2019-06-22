@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="com.baidu.fengchao.ether.test.app"/>
+
+    <bean id="confcenter" class="java.lang.String" c:_0="confcenter"/>
+
+    <!-- config center client -->
+    <bean id="hagConfClient" class="com.baidu.fengchao.ether.impl.ConfCenterClientFactory"
+          factory-method="getConfCenterClient"
+          c:propFile-ref="confcenter"/>
+    <bean id="hagPropertyConfigurer"
+          class="com.baidu.fengchao.ether.impl.ConfcenterBasedPropertyPlaceholderConfigurer"
+          p:confcenter-ref="confcenter"
+          p:order="100"
+          p:ignoreUnresolvablePlaceholders="true"
+          p:nullValue=""
+          p:props-ref="hagPropertyConfigurerProps"/>
+
+    <util:map id="hagPropertyConfigurerProps">
+        <entry key="a" value="audit.properties"/>
+        <entry key="aop" value="app.properties"/>
+    </util:map>
+
+    <!-- therad pools-->
+    <bean id="updaterThreadPool" class="org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean"
+          p:threadNamePrefix="HagStoreUpdating-"
+          p:corePoolSize="1"
+          p:maxPoolSize="1"
+          p:keepAliveSeconds="0"
+          p:queueCapacity="#{T(Integer).MAX_VALUE}"/>
+
+    <bean id="demoService" class="com.baidu.fengchao.ether.test.app.DemoService"
+          p:prop1="#[a:machine.reject.server-prefix]"
+          p:prop2="#[a:machine.reject.reason.address.sjxzh.wenzhang]"
+    />
+</beans>

@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.baidu.formula.route.spring.boot.autoconfigure.RouteAutoConfiguration

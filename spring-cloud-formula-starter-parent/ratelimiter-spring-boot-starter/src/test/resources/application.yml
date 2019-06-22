@@ -1,0 +1,32 @@
+formula:
+  ratelimiter:
+    ratelimiters:
+      - rule-id: 1
+        effectiveLocation: /global
+        effectiveType: 1
+        enabled: true
+        httpMethod: '*'
+        limiterType: 1
+        threshold: 2
+      - rule-id: 2
+        effectiveLocation: /echo/hello
+        effectiveType: 1
+        enabled: true
+        httpMethod: GET
+        limiterType: 1
+        threshold: 1
+        source:
+          tags:
+            - type: SYSTEM # or CUSTOMIZED
+              key: SERVICE_NAME # or EM_APP, EM_PLATFORM
+              value:
+                - consumer-demo
+                - consumer-test
+              op:  IN # or EQUAL，NOT_EQUAL, NOT_IN
+        destination:
+          tags:
+            - type: SYSTEM
+              key: EM_PLATFORM # or EM_APP
+              value:
+                - d-BYRhng1S
+              op:  EQUAL

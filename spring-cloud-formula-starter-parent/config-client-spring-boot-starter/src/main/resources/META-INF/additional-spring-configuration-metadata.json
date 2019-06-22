@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.config.period.refresh.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to Cloud Config Client enable period refresh."
+    }
+  ]
+}

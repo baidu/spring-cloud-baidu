@@ -1,0 +1,12 @@
+formula:
+  circuit-breaker:
+    rules:
+      - method: com.baidu.formula.test.timelimiter.LogicController#logic
+        rule-id: 1
+        timeout-duration: 1s
+        cancel-running-future: false
+      - method: com.baidu.formula.test.timelimiter.LogicController#circuit
+        rule-id: 2
+        timeout-duration: 2s
+        failure-rate-threshold: 50
+        ringBufferSizeInClosedState: 6

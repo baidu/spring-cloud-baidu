@@ -1,0 +1,6 @@
+# Bootstrap components
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+com.baidu.formula.config.client.spring.boot.autoconfigure.MultiModuleConfigServiceBootstrapConfiguration
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.baidu.formula.config.client.spring.boot.autoconfigure.refresh.PeriodRefreshAutoConfiguration

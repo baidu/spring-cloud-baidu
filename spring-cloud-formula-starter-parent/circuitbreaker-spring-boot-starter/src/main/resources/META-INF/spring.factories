@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.baidu.formula.circuitbreaker.CircuitBreakerAutoConfiguration,\
+  com.baidu.formula.circuitbreaker.autoconfigure.FeignResilienceAutoConfiguration,\
+  com.baidu.formula.circuitbreaker.autoconfigure.RestTemplateCircuitBreakerAutoConfiguration,\
+  com.baidu.formula.circuitbreaker.autoconfigure.AsyncRestTemplateCircuitBreakerAutoConfiguration
