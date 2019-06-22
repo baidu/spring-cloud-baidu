@@ -8,7 +8,6 @@ Formula在官方SpringCloud功能基础上进行完善和增强，对于开发�
 SpringBoot, SpringCloud在不同版本有一套固定的依赖，见[Spring IO Platform](https://spring.io/projects/platform). 
 不同版本也有不同的问题和特性，因此数百个应用升级SpringBoot，SpringCloud 和 starter 版本是一个无法完成的任务。
 本项目可以实现服务启动时替换，实现业务项目和中间件项目分别维护。
-详见[文档](spring-cloud-formula-launcher/README.md)
 
 ### Spring Cloud Formula CNAP
 提供开箱即用的服务治理工具集，可以高效稳定的管理线上服务。包含如下组件
@@ -81,7 +80,6 @@ JDK 8+, SpringBoot 2.0.7.RELEASE, Spring Cloud Finchley.SR2
   </depencency>
 </dependencies>
 ```
-
 
 ## 测试
 ```bash
