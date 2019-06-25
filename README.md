@@ -2,6 +2,7 @@
 基于SpringBoot兼容SpringCloud生态开发的微服务框架，是百度云CNAP(云原生微服务应用平台 Cloud-Native Application Platform)的面向客户提供的Java微服务框架设施。
 
 Formula在官方SpringCloud功能基础上进行完善和增强，对于开发者开箱即用，对平台搭建提供关键问题的解决方案。
+全部文档详见[wiki](https://github.com/baidu/spring-cloud-formula/wiki)
 
 ## 主要组件
 ### Spring Cloud Formula Launcher
