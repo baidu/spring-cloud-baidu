@@ -1,0 +1,6 @@
+# Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.baidubce.formula.consul.config.spring.boot.ConsulConfigAutoConfiguration
+# Bootstrap Configuration
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+com.baidubce.formula.consul.config.spring.boot.ConsulConfigBootstrapConfiguration
