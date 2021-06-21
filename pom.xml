@@ -55,7 +55,7 @@
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <resilience4j.version>0.13.2</resilience4j.version>
         <commons-jexl3.version>3.1</commons-jexl3.version>
-        <guava.version>24.1.1</guava.version>
+        <guava.version>30.0-jre</guava.version>
 
         <aetherVersion>1.0.0.v20140518</aetherVersion>
         <mavenVersion>3.1.0</mavenVersion>
