@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-baidu-thirdparty</artifactId>
+        <groupId>com.baidu.cloud</groupId>
+        <version>2022.2.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-cloud-baidu-thirdparty-commons</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netty.version>4.1.82.Final</netty.version>
+        <protostuff.version>1.8.0</protostuff.version>
+        <common-pool2.verison>2.5.0</common-pool2.verison>
+        <feign-spring4.version>10.8</feign-spring4.version>
+        <spring-webmvc.version>5.0.11.RELEASE</spring-webmvc.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
+        <jackson.version>2.11.2</jackson.version>
+        <dyuprotostuff.version>1.0.8</dyuprotostuff.version>
+        <reactive-streams.version>1.0.2</reactive-streams.version>
+        <netty-reactive-streams.version>2.0.4</netty-reactive-streams.version>
+        <protobuf.version>3.9.1</protobuf.version>
+        <async-http-client.version>2.12.1</async-http-client.version>
+        <protobuf-java-util.version>3.9.1</protobuf-java-util.version>
+        <guava.version>21.0</guava.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http2</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport-native-epoll</artifactId>
+            <version>${netty.version}</version>
+            <!--<classifier>${os.detected.name}-${os.detected.arch}</classifier>-->
+            <classifier>linux-x86_64</classifier>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport-native-unix-common</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+            <version>${netty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-api</artifactId>
+            <version>${protostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-collectionschema</artifactId>
+            <version>${protostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${dyuprotostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-api</artifactId>
+            <version>${dyuprotostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-collectionschema</artifactId>
+            <version>${dyuprotostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${dyuprotostuff.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${common-pool2.verison}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-spring4</artifactId>
+            <version>${feign-spring4.version}</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-webmvc.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--UUID Generator-->
+        <dependency>
+            <groupId>org.safehaus.jug</groupId>
+            <artifactId>jug</artifactId>
+            <classifier>asl</classifier>
+            <version>2.0.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
+            <version>${protobuf-java-util.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.reactivestreams</groupId>
+            <artifactId>reactive-streams</artifactId>
+            <version>${reactive-streams.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.netty</groupId>
+            <artifactId>netty-reactive-streams</artifactId>
+            <version>${netty-reactive-streams.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.asynchttpclient</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>${async-http-client.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>jarjar-maven-plugin</artifactId>
+                <version>1.9</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jarjar</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>io.netty:netty*</include>
+                                <include>io.protostuff:protostuff*</include>
+                                <include>org.apache.commons:commons-pool2</include>
+                                <include>javax.servlet:javax.servlet-api</include>
+                                <include>org.springframework:spring*</include>
+                                <include>io.github.openfeign:feign*</include>
+                                <include>com.fasterxml.jackson.core:jackson*</include>
+                                <include>com.dyuproject.protostuff:protostuff*</include>
+                                <include>org.safehaus.jug:jug</include>
+                                <include>com.typesafe.netty:netty-reactive-streams</include>
+                                <include>org.reactivestreams:reactive-streams</include>
+                                <include>org.asynchttpclient:async-http-client*</include>
+                                <include>org.apache.commons:commons*</include>
+                                <include>com.google.guava:guava</include>
+                            </includes>
+                            <rules>
+                                <rule>
+                                    <pattern>io.netty.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.netty.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>io.protostuff.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.protostuff.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.apache.commons.pool2.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.pool2.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>javax.servlet.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.servlet.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.springframework.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.springframework.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>feign.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.feign.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>com.fasterxml.jackson.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.jackson.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>com.dyuproject.protostuff.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.dyuprotostuff.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.safehaus.uuid.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.uuid.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>com.typesafe.netty.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.typesafe.netty.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.reactivestreams.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.reactivestreams.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.asynchttpclient.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.asynchttpclient.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>org.apache.commons.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.apache.commons.@1</result>
+                                </rule>
+
+                                <rule>
+                                    <pattern>com.google.common.**</pattern>
+                                    <result>com.baidu.cloud.thirdparty.google.common.@1</result>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+</project>
