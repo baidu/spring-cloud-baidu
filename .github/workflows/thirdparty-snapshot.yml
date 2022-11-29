@@ -1,3 +1,4 @@
+name: Thirdparty Snapshpt
 on: workflow_dispatch
 
 jobs:
