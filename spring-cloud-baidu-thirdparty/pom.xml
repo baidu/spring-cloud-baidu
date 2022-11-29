@@ -62,7 +62,7 @@
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>https://github.com/baidu/starlight.git</url>
+        <url>https://github.com/baidu/spring-cloud-baidu.git</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
