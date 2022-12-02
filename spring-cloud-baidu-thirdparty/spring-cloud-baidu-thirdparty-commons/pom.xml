@@ -3,7 +3,7 @@
     <parent>
         <artifactId>spring-cloud-baidu-thirdparty</artifactId>
         <groupId>com.baidu.cloud</groupId>
-        <version>2022.2.0</version>
+        <version>2022.2.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
