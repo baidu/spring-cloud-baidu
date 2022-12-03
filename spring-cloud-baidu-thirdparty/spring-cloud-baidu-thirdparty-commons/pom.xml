@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netty.version>4.1.82.Final</netty.version>
+        <netty.version>4.1.85.Final</netty.version>
         <protostuff.version>1.8.0</protostuff.version>
         <common-pool2.verison>2.5.0</common-pool2.verison>
         <feign-spring4.version>10.8</feign-spring4.version>
