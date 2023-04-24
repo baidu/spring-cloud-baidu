@@ -17,7 +17,7 @@
         <feign-spring4.version>10.8</feign-spring4.version>
         <spring-webmvc.version>5.0.11.RELEASE</spring-webmvc.version>
         <servlet-api.version>3.1.0</servlet-api.version>
-        <jackson.version>2.11.2</jackson.version>
+        <jackson.version>2.15.0</jackson.version>
         <dyuprotostuff.version>1.0.8</dyuprotostuff.version>
         <reactive-streams.version>1.0.2</reactive-streams.version>
         <netty-reactive-streams.version>2.0.4</netty-reactive-streams.version>
