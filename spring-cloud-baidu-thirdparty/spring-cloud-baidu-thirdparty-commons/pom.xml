@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-cloud-baidu-thirdparty</artifactId>
         <groupId>com.baidu.cloud</groupId>
-        <version>2022.2.1-SNAPSHOT</version>
+        <version>2023.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,6 +28,7 @@
         <protobuf-java-util.version>3.9.1</protobuf-java-util.version>
         <guava.version>21.0</guava.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
+        <okhttp.version>3.14.9</okhttp.version>
     </properties>
 
     <dependencies>
@@ -251,111 +254,144 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>jarjar-maven-plugin</artifactId>
-                <version>1.9</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>jarjar</goal>
+                            <goal>shade</goal>
                         </goals>
-                        <configuration>
-                            <includes>
-                                <include>io.netty:netty*</include>
-                                <include>io.protostuff:protostuff*</include>
-                                <include>org.apache.commons:commons-pool2</include>
-                                <include>javax.servlet:javax.servlet-api</include>
-                                <include>org.springframework:spring*</include>
-                                <include>io.github.openfeign:feign*</include>
-                                <include>com.fasterxml.jackson.core:jackson*</include>
-                                <include>com.dyuproject.protostuff:protostuff*</include>
-                                <include>org.safehaus.jug:jug</include>
-                                <include>com.typesafe.netty:netty-reactive-streams</include>
-                                <include>org.reactivestreams:reactive-streams</include>
-                                <include>org.asynchttpclient:async-http-client*</include>
-                                <include>org.apache.commons:commons*</include>
-                                <include>com.google.guava:guava</include>
-                            </includes>
-                            <rules>
-                                <rule>
-                                    <pattern>io.netty.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.netty.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>io.protostuff.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.protostuff.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.apache.commons.pool2.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.pool2.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>javax.servlet.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.servlet.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.springframework.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.springframework.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>feign.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.feign.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>com.fasterxml.jackson.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.jackson.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>com.dyuproject.protostuff.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.dyuprotostuff.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.safehaus.uuid.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.uuid.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>com.typesafe.netty.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.typesafe.netty.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.reactivestreams.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.reactivestreams.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.asynchttpclient.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.asynchttpclient.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>org.apache.commons.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.apache.commons.@1</result>
-                                </rule>
-
-                                <rule>
-                                    <pattern>com.google.common.**</pattern>
-                                    <result>com.baidu.cloud.thirdparty.google.common.@1</result>
-                                </rule>
-                            </rules>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/web-fragment.xml</exclude>
+                                <exclude>META-INF/spring.factories</exclude>
+                                <exclude>META-INF/spring.handlers</exclude>
+                                <exclude>META-INF/services/*</exclude>
+                                <exclude>META-INF/native/*</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                            <resource>META-INF/native/thirdparty/libnetty_transport_native_epoll_x86_64.so</resource>
+                            <file>lib/libnetty_transport_native_epoll_x86_64.so</file>
+                        </transformer>
+                    </transformers>
+                    <artifactSet>
+                        <includes>
+                            <include>io.netty:netty*</include>
+                            <include>io.protostuff:protostuff*</include>
+                            <include>org.apache.commons:commons-pool2</include>
+                            <include>javax.servlet:javax.servlet-api</include>
+                            <include>org.springframework:spring*</include>
+                            <include>io.github.openfeign:feign*</include>
+                            <include>com.fasterxml.jackson.core:jackson*</include>
+                            <include>com.dyuproject.protostuff:protostuff*</include>
+                            <include>org.safehaus.jug:jug</include>
+                            <include>com.typesafe.netty:netty-reactive-streams</include>
+                            <include>org.reactivestreams:reactive-streams</include>
+                            <include>org.asynchttpclient:async-http-client*</include>
+                            <include>org.apache.commons:commons*</include>
+                            <include>com.google.guava:guava</include>
+                            <include>com.squareup.okhttp3:okhttp</include>
+                        </includes>
+                    </artifactSet>
+                    <relocations>
+                        <relocation>
+                            <pattern>io.netty</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.netty</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>io.protostuff</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.protostuff</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.apache.commons.pool2</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.pool2</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>javax.servlet</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.servlet</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.springframework</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.springframework</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>feign</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.feign</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>com.fasterxml.jackson</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.jackson</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>com.dyuproject.protostuff</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.dyuprotostuff</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.safehaus.uuid</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.uuid</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>com.typesafe.netty</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.typesafe.netty</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.reactivestreams</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.reactivestreams</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.asynchttpclient</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.asynchttpclient</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.apache.commons</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.apache.commons</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>com.google.common</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.google.common</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>okhttp3</pattern>
+                            <shadedPattern>com.baidu.cloud.thirdparty.okhttp3</shadedPattern>
+                        </relocation>
+
+                    </relocations>
+                </configuration>
             </plugin>
 
         </plugins>
