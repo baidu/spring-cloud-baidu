@@ -5,7 +5,7 @@
     <parent>
         <artifactId>spring-cloud-baidu-thirdparty</artifactId>
         <groupId>com.baidu.cloud</groupId>
-        <version>2023.0.1-SNAPSHOT</version>
+        <version>2024.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netty.version>4.1.85.Final</netty.version>
+        <netty.version>4.1.107.Final</netty.version>
         <protostuff.version>1.8.0</protostuff.version>
         <common-pool2.verison>2.5.0</common-pool2.verison>
         <feign-spring4.version>10.8</feign-spring4.version>
@@ -198,6 +198,12 @@
             <version>${jackson.version}</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+            <optional>true</optional>
+        </dependency>
 
         <!--UUID Generator-->
         <dependency>
@@ -305,6 +311,7 @@
                             <include>org.springframework:spring*</include>
                             <include>io.github.openfeign:feign*</include>
                             <include>com.fasterxml.jackson.core:jackson*</include>
+                            <include>com.fasterxml.jackson.datatype:jackson*</include>
                             <include>com.dyuproject.protostuff:protostuff*</include>
                             <include>org.safehaus.jug:jug</include>
                             <include>com.typesafe.netty:netty-reactive-streams</include>
