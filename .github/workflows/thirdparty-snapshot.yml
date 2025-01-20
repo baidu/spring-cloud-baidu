@@ -19,6 +19,10 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_SECRET }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
+      - name: Print environment variables
+        run: |
+          cat $HOME/.m2/settings.xml
+        
       - name: Configure Git user
         run: |
           git config user.email "actions@github.com"
