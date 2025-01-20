@@ -18,11 +18,6 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_SECRET }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-
-      - name: Print environment variables
-        run: |
-          cat $HOME/.m2/settings.xml
-          echo "${{ secrets.GPG_SECRET }}"
         
       - name: Configure Git user
         run: |
