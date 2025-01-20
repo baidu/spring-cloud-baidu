@@ -22,6 +22,7 @@ jobs:
       - name: Print environment variables
         run: |
           cat $HOME/.m2/settings.xml
+          echo "${{ secrets.GPG_SECRET }}"
         
       - name: Configure Git user
         run: |
